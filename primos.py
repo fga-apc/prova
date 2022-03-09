@@ -11,16 +11,20 @@ O exercício possui algumas dicas de implementação na forma de comentários.
 # Acrescentamos os novos primos à lista de primos.
 # Assumimos que o número é primo e tentamos encontrar o divisor.
 # Um número não pode ser primo se for divisível por outro primo.
-for p in primos:
-    for x in nums:
+
+n = int(input("n: "))
+nums = range(2, n + 1)
+primos = [2, 3]
+
+for x in nums:
+    é_primo = True
+    for p in primos:
         if x % p == 0:
-            if é_primo:
-                n = int(input("n: "))
-                nums = range(2, n + 1)
-                nums = range(2, n)
-                nums = range(n)
-                primos = [2, 3]
-                primos.append(x)
-                print(primos)
-                é_primo = False
-                é_primo = True
+            é_primo = False
+    if é_primo: 
+        primos.append(x)
+
+print(primos)
+
+#nums = range(2, n)
+#nums = range(n)
